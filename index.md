@@ -1,6 +1,6 @@
 ---
-title: final project: Russell's Paradox and The Halting Problem
-author: Author
+title: MA274 Final Project: Russell's Paradox and The Halting Problem
+author: [Tin Nguyen, Rafay] 
 date: 2025-11-22
 tags: [ma274, math, cs, marp]
 marp: true
@@ -28,15 +28,34 @@ Tin Nguyen
 1. Russell's Paradox
 1. The Halting Problem
 1. 🤯🤯🤯 They're the same?
-1. 🤯🤯🤯 Math is broken
+1. Math is broken ヽ(º ■ º l|l)ﾉ
 1. Math is fixed ヽ(・∀・)ﾉ
 
 ---
 
 <!-- _header: Russell's Paradox -->
 
+---
+
+<!-- _header: The Halting Problem -->
+
+---
+
+<!-- _header: Russell's Paradox & The Halting Problem -->
+
+---
+
+<!-- _header: Math is broken ヽ(º ■ º l|l)ﾉ -->
+
+---
+
+<!-- _header: Math is fixed ヽ(・∀・)ﾉ -->
+
+---
+
 - Marp uses **Markdown** that has **bold text**. 
 - Markdown has the divider `---` to separate the slides. Example footnote: $^1$
+- Use the <br> for endline
 
 > 1: This is an example footnote in Markdown. 
 
