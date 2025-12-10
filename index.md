@@ -81,13 +81,12 @@ $$
     - $\{🐱, 😼\}, \mathbb{R}, \cal P(\mathbb{R}),. . .$
 - Sets can contain other sets as elements.
 - Question: can a set contain itself?
-- Tempting idea: consider the set of all sets that do not contain themselves…
 
 ---
 
-<!-- _header: Slogan -->
-
-_Is there a barber in town who shaves everyone that doesn't shave themself?_
+**Bertrand Russell** 
+![](assets/2025-12-10-11-51-01.jpg)
+Tempting idea: consider the set of all sets that do not contain themselves…
 
 ---
 
@@ -106,17 +105,29 @@ Consider $\textcolor{blue}{R} ∈ \textcolor{blue}{R}$?
 
 ---
 
+<!-- _header: Slogan -->
+
+_Is there a barber in town who shaves everyone that doesn't shave themself?_
+
+---
+
 <!-- _header: Math is broken ヽ(º ■ º l|l)ﾉ -->
 
 If you build your math on axiomatic set theory, and the set theory falls apart, your entire math falls apart...
 
 $$
 \begin{aligned}
+\begin{aligned}
 &0 = ∅ \\
 &1 = \{∅\} \\
 &2 = \{∅, \{∅\}\} \\
 &3 = \{∅, \{∅, \{∅\}\}\} \\
 &\vdots
+\end{aligned}
+&
+\quad
+&
+\text{Russell 's Paradox } ⇒  1 = 2
 \end{aligned}
 $$
 
@@ -129,11 +140,17 @@ If you build your math on axiomatic set theory, and the set theory falls apart, 
 
 $$
 \begin{aligned}
+\begin{aligned}
 &0 = ∅ \\
 &1 = \{∅\} \\
 &2 = \{∅, \{∅\}\} \\
 &3 = \{∅, \{∅, \{∅\}\}\} \\
 &\vdots
+\end{aligned}
+&
+\quad
+&
+\text{Russell 's Paradox } ⇒  1 = 2
 \end{aligned}
 $$
 
@@ -172,9 +189,9 @@ _The inifinite loop is a common bug. Can I write a program to detect if a given 
 Suppose such a program exists, call it `checkhalt`:
 
 ```python 
-def checkhalt(another_program):
+def checkhalt(another_program, input):
     # black magic to check ✨
-    if the_program_will_halt:
+    if _program(input)_will_halt:
         return True
     return False
 ```
@@ -182,7 +199,7 @@ def checkhalt(another_program):
 Then, define another program, call it `annoying`:
 ```python
 def annoying(another_program):
-    if checkhalt(another_program(another_program))
+    if checkhalt(another_program, another_program) # checks another_program(another_program)
         while True: pass  # loops infinitely
     return # halts
 ```
@@ -192,7 +209,7 @@ def annoying(another_program):
 
 ```python
 def annoying(another_program):
-    if checkhalt(another_program(another_program)): # 👈👈👈👈
+    if checkhalt(another_program(another_program)): # <---------
         while True: pass  # loops infinitely
     return # halts
 ```
@@ -244,11 +261,11 @@ Consider $\textcolor{blue}{R} ∈ \textcolor{blue}{R}$?
 
 <div> 
 
-`checkhalt`
+`checkhalt(program(input))` 
 
 `annoying`
 
-`annoying(p)` $\iff \neg$ `checkhalt(p(p))`
+`checkhalt(annoying(p)) = ` $\iff \neg$ `checkhalt(p(p))`
 
 <br>
 
@@ -258,6 +275,62 @@ Consider $\textcolor{blue}{R} ∈ \textcolor{blue}{R}$?
 
 `annoying^2` loops $⇒$ `annoying^2` halts $↯$
 
+
+
+</div>
+
+</div>
+
+
+---
+
+<!-- _header: Comparison: Diagonalization -->
+
+<div class="row">
+
+<div> 
+
+$\text{SETS}$
+
+Let $\textcolor{blue}{R} = \{ \textcolor{green}{X} ∈ \text{ SETS} : \textcolor{green}{X} \textcolor{red}{∉}  \textcolor{green}{X} \}$. 
+
+So $\textcolor{green}{X} ∈ \textcolor{blue}{R} \iff \textcolor{green}{X} \textcolor{red}{∉}  \textcolor{green}{X}$
+
+Consider $\textcolor{blue}{R} ∈ \textcolor{blue}{R}$?
+
+**Case 1** $\textcolor{blue}{R} ∈ \textcolor{blue}{R}$. Then $\textcolor{blue}{R} \textcolor{red}{∉} \textcolor{blue}{R} \quad ↯$
+
+**Case 2** $\textcolor{blue}{R} \color{red}∉  \textcolor{blue}{R}$. Then $\textcolor{blue}{R} ∈ \textcolor{blue}{R} \quad ↯$ 
+</div>
+
+<div> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+| <br> 
+</div>
+
+<div> 
+
+`checkhalt(A, B)`: `A` $∈ /∉$ `B`?
+
+`annoying`
+
+`p` $∈$ `annoying` $\iff$ `p` $∉$ `p`
+
+<br>
+
+`annoying` $∈$ `annoying`?
+
+`annoying^2` halts $⇒$`annoying^2` loops $↯$
+
+`annoying^2` loops $⇒$ `annoying^2` halts $↯$
 
 
 </div>
@@ -278,7 +351,7 @@ _But what other kind of **"collection"** do we have?_
 
 <!-- _header: Math is fixed ヽ(・∀・)ﾉ (kind of):  Zermelo–Fraenkel + Choice Axiom -->
 
-- **Extensionality**: $A = B \iff A ⊂ B ^ B ⊂ A$
+- **Extensionality**: $A = B \iff A ⊂ B ∧ B ⊂ A$
 - **Power set**: $∀ A, ∃ \cal P(A)$
 
 ---
@@ -291,13 +364,21 @@ $$
 $$
 is also a set. 
 
-This kills Russell's Paradox. 
+This kills Russell's Paradox. Where $\textcolor{blue}{R} = \{ \textcolor{green}{X} ∈ \text{ SETS} : \textcolor{green}{X} \textcolor{red}{∉}  \textcolor{green}{X} \}$. SETS isn't a set. It is a **class**
+
+---
+
+<!-- _header: Math is fixed ヽ(・∀・)ﾉ (kind of):  Zermelo–Fraenkel + Choice Axiom -->
+
+_Every set has a minimal element_
+
+**Minimal**: A set $M$ is minimal if no other set $S$ in the collection contains $M$ as a proper subset $M ⊂ S$
 
 ---
 
 <!-- _header: Moral of the Story -->
 
-Take the L like a champ. It is not the end of the world if your math fails. You're (you Frege) a pretty cool guy. 
+Take the L like a champ. We love you Frege. 
 
 ![center](assets/2025-12-10-04-49-58.jpg)
 
