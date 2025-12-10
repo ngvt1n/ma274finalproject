@@ -16,6 +16,9 @@ section {
   padding-top: 90px;
   padding-left: 40px;
   padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* https://github.com/marp-team/marpit/issues/271 */
@@ -29,46 +32,46 @@ ul ul {
 }
 
 section.lead h1 {
-  color: #800000;
+  color: var(--color-highlight);
   text-align: left;
 }
 section.lead h1 strong {
-  -webkit-text-stroke: 1px #800000;
+  -webkit-text-stroke: 1px var(--color-highlight);
 }
 section.lead h2 {
-  color: #800000;
+  color: var(--color-highlight);
   text-align: left;
 }
 section.lead h2 strong {
-  -webkit-text-stroke: 1px #800000;
+  -webkit-text-stroke: 1px var(--color-highlight);
 }
 section.lead h3 {
-  color: #800000;
+  color: var(--color-highlight);
   text-align: left;
 }
 section.lead h3 strong {
-  -webkit-text-stroke: 1px #800000;
+  -webkit-text-stroke: 1px var(--color-highlight);
 }
 section.lead h4 {
-  color: #800000;
+  color: var(--color-highlight);
   text-align: left;
 }
 section.lead h4 strong {
-  -webkit-text-stroke: 1px #800000;
+  -webkit-text-stroke: 1px var(--color-highlight);
 }
 section.lead h5 {
-  color: #800000;
+  color: var(--color-highlight);
   text-align: left;
 }
 section.lead h5 strong {
-  -webkit-text-stroke: 1px #800000;
+  -webkit-text-stroke: 1px var(--color-highlight);
 }
 section.lead p {
   text-align: right;
 }
 
 header {
-  background-color: #800000;
+  background-color: var(--color-highlight);
   color: #fff;
   font-size: 1em;
   font-weight: 700;
@@ -93,6 +96,45 @@ img[alt~="center"] {
   margin: 0 auto;
 }
 
+img[alt~="fixed"] {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  opacity: 70%;
+}
+
 code {
   font-family: 'Source Code Pro', monospace;
+}
+
+/* section { */
+/*   font-family: 'Comic Sans MS', sans-serif; */
+/* } */
+/**/
+.katex {
+  /* font-family: 'Comic Sans MS' */
+  font-size: 1.21em;
+}
+
+.katex .mathnormal {
+  /* font-family: 'Comic Sans MS' */
+  font-size: 1.21em;
+}
+
+strong {
+  background-color: color-mix(in oklab, var(--color-highlight) 15%, var(--color-background));
+}
+
+.row {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: .9em;
+}
+
+code {
+  background-color: var(--color-highlight);
 }
